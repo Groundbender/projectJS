@@ -1,7 +1,7 @@
 {
   "name": "modules",
   "version": "1.0.0",
-  "description": "Инкапсуляция - в каждом файле js создание функции, внутри которй и описывали переменные, чтобы создать отдельную область видимости и не было ошибок",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
