@@ -3,9 +3,10 @@ import { sliderServices } from "./modules/sliderServices";
 import servicesModal from "./modules/servicesModal";
 import callbackModal from "./modules/callbackModal";
 import scroll from "./modules/scroll";
-
+import modalImg from "./modules/modalImg";
 swiperFuncBenefits();
 sliderServices();
 servicesModal();
 callbackModal();
 scroll();
+modalImg();
