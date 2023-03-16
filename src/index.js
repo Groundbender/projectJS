@@ -1,5 +1,5 @@
-import oneModule from "./modules/one";
-import twoModule from "./modules/two";
+import { swiperFuncBenefits } from "./modules/sliderBenefits";
+import { sliderServices } from "./modules/sliderServices";
 
-oneModule();
-twoModule();
+swiperFuncBenefits();
+sliderServices();
