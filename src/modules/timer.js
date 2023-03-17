@@ -1,8 +1,8 @@
 const timer = (deadline) => {
-  const timerDays = document.querySelector(".count_1>span");
-  const timerHours = document.querySelector(".count_2>span");
-  const timerMinutes = document.querySelector(".count_3>span");
-  const timerSeconds = document.querySelector(".count_4>span");
+  const timerDays = document.querySelectorAll(".count_1>span");
+  const timerHours = document.querySelectorAll(".count_2>span");
+  const timerMinutes = document.querySelectorAll(".count_3>span");
+  const timerSeconds = document.querySelectorAll(".count_4>span");
 
   let idUpdateCLock;
 
@@ -27,10 +27,13 @@ const timer = (deadline) => {
         return String(elem);
       }
     };
-    timerDays.textContent = addZero(getTime.days);
-    timerHours.textContent = addZero(getTime.hours);
-    timerMinutes.textContent = addZero(getTime.minutes);
-    timerSeconds.textContent = addZero(getTime.seconds);
+
+    for (let i = 0; i < timerDays.length; i++) {
+      timerDays[i].textContent = addZero(getTime.days);
+      timerHours[i].textContent = addZero(getTime.hours);
+      timerMinutes[i].textContent = addZero(getTime.minutes);
+      timerSeconds[i].textContent = addZero(getTime.seconds);
+    }
 
     if (getTime.timeRemaining < 0) {
       clearInterval(idUpdateCLock);
