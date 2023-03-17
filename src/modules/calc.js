@@ -1,16 +1,21 @@
 import { animate } from "./helpers";
 
 const calc = (price = 1000) => {
+  const calcBlock = document.getElementById("calc");
+  if (!calcBlock) {
+    return;
+  }
+
   const calcType = document.getElementById("calc-type");
   const calcInput = document.getElementById("calc-input");
   const total = document.getElementById("calc-total");
   const calcTypeMaterial = document.getElementById("calc-type-material");
-  const calcBlock = document.getElementById("calc");
 
   // console.log(calcType);
   // console.log(calcInput);
   // console.log(calcTotal);
   // console.log(calcTypeMaterial);
+
   calcInput.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/\D+/, "");
   });
