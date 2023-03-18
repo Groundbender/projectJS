@@ -1674,6 +1674,29 @@ input.error {
   bottom: 25px;
   transform: rotate(90deg);
 }
+.image-modal {
+  display: none;
+  position: fixed;
+  max-width: 450px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.image-modal__body {
+  padding: 30px;
+}
+.image-modal__body img {
+  width: 100%;
+}
+.image-modal__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 36px;
+  cursor: pointer;
+}
 
 @media (min-width: 576px) {
   .benefits-wrap {

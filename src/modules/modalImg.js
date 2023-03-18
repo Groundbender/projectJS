@@ -1,6 +1,7 @@
 const modalImg = () => {
   const images = document.querySelectorAll(".document-overlay");
-  // console.log(images);
+  const modal = document.querySelector(".modal-img");
+  const closeBtn = document.querySelector("");
 
   images.forEach((img) => {
     img.addEventListener("click", (e) => {
