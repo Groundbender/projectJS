@@ -1,3 +1,5 @@
+import { animate } from "./helpers";
+
 const servicesModal = () => {
   const serviceModalBtns = document.querySelectorAll(".service-button");
   const modalServices = document.querySelector(".services-modal");
@@ -11,6 +13,17 @@ const servicesModal = () => {
       e.preventDefault();
       overlay.style.display = "block";
       modalServices.style.display = "block";
+      if (screen.width > 768) {
+        animate({
+          duration: 500,
+          timing(timeFraction) {
+            return timeFraction;
+          },
+          draw(progress) {
+            modalServices.style.opacity = progress;
+          },
+        });
+      }
     });
   });
   modalCLose.addEventListener("click", () => {

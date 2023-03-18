@@ -1,3 +1,5 @@
+import { animate } from "./helpers";
+
 const callbackModal = () => {
   const callbackBtn = document.getElementsByClassName("btn")[1];
   const callbackModal = document.querySelector(".header-modal");
@@ -7,6 +9,17 @@ const callbackModal = () => {
   callbackBtn.addEventListener("click", () => {
     overlay.style.display = "block";
     callbackModal.style.display = "block";
+    if (screen.width > 768) {
+      animate({
+        duration: 500,
+        timing(timeFraction) {
+          return timeFraction;
+        },
+        draw(progress) {
+          callbackModal.style.opacity = progress;
+        },
+      });
+    }
   });
   callbackModalCLose.addEventListener("click", () => {
     overlay.style.display = "none";
