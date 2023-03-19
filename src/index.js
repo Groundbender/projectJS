@@ -8,6 +8,7 @@ import timer from "./modules/timer";
 import calc from "./modules/calc";
 import validation from "./modules/validation";
 import sendForm from "./modules/sendForm";
+import comments from "./modules/comments";
 swiperFuncBenefits();
 sliderServices();
 servicesModal();
@@ -65,3 +66,5 @@ if (document.body.classList.contains("kuhni")) {
   sendForm({ formID: "callback-form-modal3", someElem: [] });
   sendForm({ formID: "application-form-modal3", someElem: [] });
 }
+
+comments();
