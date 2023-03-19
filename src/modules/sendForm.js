@@ -3,11 +3,15 @@ const sendForm = ({ formID, someElem = [] }) => {
   const statusBLock = document.createElement("div");
   const errorText = "&#10060;" + " Упс, что-то пошло не так...";
   const successText = "&#10004;&#65039;" + " Спасибо за заявку!";
-  const loadText = "Секунду...";
+  const loadText = `<div class="loadingio-spinner-spin-agswc9pm3i"><div class="ldio-17h9ep7etlj">
+  <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
+  </div></div>
+  `;
   statusBLock.style.textAlign = "center";
   statusBLock.style.margin = "10px";
+  const forms = document.querySelectorAll("form");
 
-  const validate = (list) => {
+  const validateSubmit = (list) => {
     let success = true;
     list.forEach((input) => {
       if (input.name === "fio") {
@@ -66,7 +70,7 @@ const sendForm = ({ formID, someElem = [] }) => {
         });
       }
     }
-    if (validate(formElements)) {
+    if (validateSubmit(formElements)) {
       sendData(formBody).then((data) => {
         statusBLock.innerHTML = successText;
 
