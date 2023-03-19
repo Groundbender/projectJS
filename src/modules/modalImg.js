@@ -22,6 +22,9 @@ const modalImg = () => {
 
     modal.style.display = "block";
     overlay.style.display = "block";
+    let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.paddingRight = `${scrollWidth}px`;
+    document.body.style.overflow = "hidden";
     if (screen.width > 768) {
       animate({
         duration: 500,
@@ -49,6 +52,8 @@ const modalImg = () => {
   close.addEventListener("click", (e) => {
     modal.style.display = "none";
     overlay.style.display = "none";
+    document.body.style.paddingRight = `0px`;
+    document.body.style.overflow = "";
 
     modalContent.innerHTML = "";
   });
