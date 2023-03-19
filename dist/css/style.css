@@ -719,6 +719,9 @@ p.services-image_mobile {
   width: 39px;
   height: 33px;
 }
+.review-arrow.rotated:after {
+  transform: rotate(180deg);
+}
 .review-arrow-left {
   margin-left: 39px;
 }

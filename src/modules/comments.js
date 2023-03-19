@@ -1,8 +1,13 @@
 const comments = () => {
   const commentsBlock = document.querySelector(" .comments-container");
-  const commentsItem = commentsBlock.querySelectorAll(".comment-item");
+
   console.log(commentsBlock);
-  console.log(commentsItem);
+
+  let firstSlide = 0;
+  let lastSLide = 3;
+  let displayedBlocks = 3;
+
+  let idInterval;
 
   const getData = (url) => {
     return fetch(url)
@@ -11,7 +16,7 @@ const comments = () => {
   };
   const render = (comments = []) => {
     const commentColors = ["review-green", "review-gray", "review-orange"];
-
+    let commentItems = [];
     comments.forEach((comment, index) => {
       const itemComment = document.createElement("div");
       itemComment.className = "review-margin-bottom row comment-item";
@@ -52,10 +57,69 @@ const comments = () => {
         // 						</div>					
         // 				`;
       }
+
+      if (index < displayedBlocks) {
+        commentsBlock.append(itemComment);
+        const arrow = itemComment.querySelector(".review-arrow");
+
+        arrow.classList.add("rotated");
+      }
+
+      commentItems.push(itemComment);
     });
+
+    startCommentSwitch(commentItems);
   };
 
-  getData("/cj/comments.json").then((data) => console.log(data));
+  const hideComment = (blocks, index) => {
+    blocks[index].remove();
+  };
+
+  const openComment = (blocks, index) => {
+    commentsBlock.append(blocks[index]);
+  };
+
+  const switchComments = (blocks) => {
+    hideComment(blocks, firstSlide);
+    firstSlide++;
+    if (firstSlide >= blocks.length) {
+      firstSlide = 0;
+    }
+
+    openComment(blocks, lastSLide);
+    lastSLide++;
+    if (lastSLide >= blocks.length) {
+      lastSLide = 0;
+    }
+  };
+
+  const startCommentSwitch = (blocks) => {
+    idInterval = setInterval(() => {
+      switchComments(blocks);
+    }, 20000);
+  };
+
+  commentsBlock.innerHTML = `	<div class="loadingio-spinner-spinner-pekitlceoak"><div class="ldio-4n6hftn9ffd">
+  <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+  </div></div>`;
+
+  getData("/cj/comments.json")
+    .then((data) => {
+      setTimeout(() => {
+        try {
+          commentsBlock.innerHTML = "";
+          render(data.comments);
+        } catch (error) {
+          console.log(error.message);
+          commentsBlock.innerHTML = `	<div class="loadingio-spinner-spinner-pekitlceoak"><div class="ldio-4n6hftn9ffd">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div></div>`;
+        }
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
 };
 
 export default comments;
