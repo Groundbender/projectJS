@@ -8,7 +8,8 @@ export const swiperFuncBenefits = () => {
     modules: [Navigation, Autoplay],
     slidesPerView: 3,
     loop: true,
-    slidesOffsetBefore: 120,
+    slidesOffsetBefore: 145,
+    centeredSlides: true,
 
     autoplay: {
       delay: 2500,
