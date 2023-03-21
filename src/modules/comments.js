@@ -1,8 +1,6 @@
 const comments = () => {
   const commentsBlock = document.querySelector(" .comments-container");
 
-  console.log(commentsBlock);
-
   let firstSlide = 0;
   let lastSLide = 3;
   let displayedBlocks = 3;
