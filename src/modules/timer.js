@@ -33,14 +33,13 @@ const timer = (deadline) => {
       timerHours[i].textContent = addZero(getTime.hours);
       timerMinutes[i].textContent = addZero(getTime.minutes);
       timerSeconds[i].textContent = addZero(getTime.seconds);
-    }
-
-    if (getTime.timeRemaining < 0) {
-      clearInterval(idUpdateCLock);
-      timerDays.textContent = addZero(0);
-      timerHours.textContent = addZero(0);
-      timerMinutes.textContent = addZero(0);
-      timerSeconds.textContent = addZero(0);
+      if (getTime.timeRemaining <= 0) {
+        clearInterval(idUpdateCLock);
+        timerDays[i].textContent = addZero(0);
+        timerHours[i].textContent = addZero(0);
+        timerMinutes[i].textContent = addZero(0);
+        timerSeconds[i].textContent = addZero(0);
+      }
     }
   };
   updateCLock();
