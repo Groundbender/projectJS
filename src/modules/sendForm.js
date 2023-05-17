@@ -59,9 +59,12 @@ const sendForm = ({ formID, someElem = [] }) => {
     statusBLock.innerHTML = loadText;
     form.append(statusBLock);
 
-    formData.forEach((val, key) => {
-      formBody[key] = val;
-    });
+    // formData.forEach((val, key) => {
+    //   formBody[key] = val;
+    // });
+    let json = Object.fromEntries(formData.entries());
+    console.log(json);
+
     if (document.body.classList.contains("balkony")) {
       if (calcTotal.value !== "" && calcTotal.value !== "0") {
         someElem.forEach((elem) => {
@@ -71,7 +74,7 @@ const sendForm = ({ formID, someElem = [] }) => {
       }
     }
     if (validateSubmit(formElements)) {
-      sendData(formBody).then((data) => {
+      sendData(json).then((data) => {
         statusBLock.innerHTML = successText;
 
         setTimeout(() => {

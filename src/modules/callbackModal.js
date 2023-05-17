@@ -35,6 +35,7 @@ const callbackModal = () => {
   };
 
   const closeModal = () => {
+    window.removeEventListener("scroll", showModalByScroll);
     overlay.style.display = "none";
     callbackModal.style.display = "none";
   };
